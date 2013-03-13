@@ -2,6 +2,7 @@ apply plugin: "java"
 apply plugin: "maven"
 apply plugin: "eclipse"
 apply plugin: "war"
+apply from: "flyway.gradle"
 
 group = "jappy"
 version = 1.0
@@ -22,8 +23,8 @@ repositories {
 
 dependencies {
     compile "org.eclipse.jetty.orbit:javax.servlet:3.0.0.v201112011016@jar"
-    compile('org.eclipse.jetty:jetty-server:8.1.9.v20130131') { exclude module: 'javax.servlet' }
-    compile('org.eclipse.jetty:jetty-webapp:8.1.9.v20130131') { exclude module: 'javax.servlet' }
+    compile("org.eclipse.jetty:jetty-server:8.1.9.v20130131") { exclude module: 'javax.servlet' }
+    compile("org.eclipse.jetty:jetty-webapp:8.1.9.v20130131") { exclude module: 'javax.servlet' }
     compile 'commons-io:commons-io:1.4'
     compile 'com.sun.jersey:jersey-client:1.17.1'
     compile 'com.sun.jersey:jersey-core:1.17.1'
@@ -31,4 +32,3 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) { gradleVersion = '1.3' }
-

@@ -1,0 +1,35 @@
+import com.googlecode.flyway.core.Flyway
+import com.googlecode.flyway.core.api.MigrationInfo
+import com.googlecode.flyway.core.api.MigrationInfoService
+import com.googlecode.flyway.core.util.DateUtils
+
+buildscript {
+    repositories { mavenCentral() }
+    dependencies {
+        classpath files('src/main/resources')
+        classpath 'com.googlecode.flyway:flyway-core:2.1'
+        classpath 'postgresql:postgresql:9.1-901.jdbc4'
+    }
+}
+
+def flyway = new Flyway()
+flyway.setDataSource(jdbcUrl, jdbcUser, jdbcPassword)
+
+task flywayInit << { flyway.init() }
+
+task flywayClean << { flyway.clean() }
+
+task flywayMigrate << { flyway.migrate() }
+
+task flywayRepair << { flyway.repair() }
+
+task flywayInfo << {
+    def migrationInfoService = flyway.info()
+    migrationInfoService.all().each{
+        println "Version : " + it.getVersion()
+        def description = it.getDescription() == null ? "" : it.getDescription()
+        println "  Description  : " + description
+        println "  Installed on : " + DateUtils.formatDateAsIsoString(it.getInstalledOn())
+        println "  State        : " + it.getState().name()
+    }
+}
