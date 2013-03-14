@@ -25,7 +25,7 @@ task flywayRepair << { flyway.repair() }
 
 task flywayInfo << {
     def migrationInfoService = flyway.info()
-    migrationInfoService.all().each{
+    migrationInfoService.all().each {
         println "Version : " + it.getVersion()
         def description = it.getDescription() == null ? "" : it.getDescription()
         println "  Description  : " + description
