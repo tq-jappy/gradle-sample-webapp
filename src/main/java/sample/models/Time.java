@@ -6,8 +6,8 @@ import java.util.TimeZone;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * @author t.endo
  *
+ * @author t.endo
  */
 @XmlRootElement
 public class Time {
@@ -28,7 +28,6 @@ public class Time {
         final Calendar now = Calendar.getInstance(timezone);
 
         this.timezone = now.getTimeZone().getDisplayName();
-        System.out.println("----  " + timezone.getDisplayName());
         this.year = now.get(Calendar.YEAR);
         this.month = now.get(Calendar.MONTH) + 1;
         this.day = now.get(Calendar.DATE);
