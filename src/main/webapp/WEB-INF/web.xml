@@ -28,6 +28,6 @@
 
     <servlet-mapping>
         <servlet-name>jersey-services</servlet-name>
-        <url-pattern>/services/*</url-pattern>
+        <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
 </web-app>

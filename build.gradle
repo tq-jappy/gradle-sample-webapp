@@ -49,3 +49,4 @@ dependencies {
 task wrapper(type: Wrapper) { gradleVersion = '1.3' }
 
 [jettyRun, jettyRunWar]*.httpPort = 8090
+[jettyRun, jettyRunWar]*.contextPath = 'sample'

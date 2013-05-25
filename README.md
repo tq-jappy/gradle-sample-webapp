@@ -14,5 +14,5 @@ $ gradle jettyRunWar
 
 Try to access:
 
-- http://localhost:8090/gradle-hello-webapp/hello
-- http://localhost:8090/gradle-sample-webapp/services/time
+- http://localhost:8090/sample/hello
+- http://localhost:8090/sample/rest/time
