@@ -2,11 +2,19 @@ gradle-sample-jettyapp
 ======================
 
 - Author : Takumi Endo
-- Technologies : Gradle, JAX-RS, Flyway migration, static analysis (findbugs, checkstyle)
+- Technologies : Gradle, JAX-RS, Flyway migration, static analysis (findbugs, checkstyle), Heroku (prospected)
 - Application Servers : Jetty 8.x
 - Summary : Simple web application by Gradle build.
 
-## Build and Deploy Locally
+## Build app
+
+Build the app locally:
+
+```
+$ gradle build
+```
+
+Build and run app locally:
 
 ```
 $ gradle jettyRunWar

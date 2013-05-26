@@ -3,7 +3,7 @@ apply plugin: "maven"
 apply plugin: "eclipse"
 apply plugin: "war"
 apply plugin: "jetty"
-apply plugin: 'application'
+// apply plugin: 'application'
 apply plugin: "checkstyle"
 apply plugin: "findbugs"
 apply from: "flyway.gradle"
@@ -11,8 +11,8 @@ apply from: "flyway.gradle"
 group = "jappy"
 version = 1.0
 sourceCompatibility = 1.7
-mainClassName = "HelloWorld"
-applicationName = "app"
+// mainClassName = "HelloWorld"
+// applicationName = "app"
 
 def defaultEncoding = 'UTF-8'
 [
