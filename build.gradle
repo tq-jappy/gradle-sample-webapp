@@ -5,7 +5,7 @@ apply plugin: "war"
 apply plugin: "jetty"
 // apply plugin: 'application'
 // apply plugin: "checkstyle"
-apply plugin: "findbugs"
+// apply plugin: "findbugs"
 apply from: "flyway.gradle"
 
 group = "jappy"
@@ -22,8 +22,7 @@ def defaultEncoding = 'UTF-8'
 ]*.options*.encoding = defaultEncoding
 
 // [checkstyleMain, checkstyleTest]*.ignoreFailures = true
-
-[findbugsMain, findbugsTest]*.ignoreFailures = true
+// [findbugsMain, findbugsTest]*.ignoreFailures = true
 
 repositories {
     mavenLocal()
