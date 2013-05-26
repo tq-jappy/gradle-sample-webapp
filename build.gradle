@@ -45,7 +45,7 @@ dependencies {
     testCompile 'junit:junit:4.10'
 }
 
-task stage(dependsOn: ['clean'])
+task stage(dependsOn: ['clean', 'jettyRunWar'])
 
 [jettyRun, jettyRunWar]*.httpPort = 8090
 [jettyRun, jettyRunWar]*.contextPath = 'sample'
