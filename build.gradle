@@ -51,7 +51,7 @@ dependencies {
 
 task wrapper(type: Wrapper) { gradleVersion = '1.6' }
 
-task stage(dependsOn: ['clean', 'installApp'])
+task stage(dependsOn: ['clean'])
 
 [jettyRun, jettyRunWar]*.httpPort = 8090
 [jettyRun, jettyRunWar]*.contextPath = 'sample'
