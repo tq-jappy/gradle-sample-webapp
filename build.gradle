@@ -11,7 +11,7 @@ apply from: "flyway.gradle"
 group = "jappy"
 version = 1.0
 sourceCompatibility = 1.7
-mainClassName = "sample.HelloWorld"
+mainClassName = "sample.Main"
 applicationName = "app"
 
 def defaultEncoding = 'UTF-8'
