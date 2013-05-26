@@ -25,7 +25,7 @@ Try to access:
 
 ## Deploy to Heroku
 
-``
+```
 $ heroku create -s cedar {appname}
 $ git push heroku master
 ```
