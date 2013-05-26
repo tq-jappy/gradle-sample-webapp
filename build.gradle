@@ -4,7 +4,7 @@ apply plugin: "eclipse"
 apply plugin: "war"
 apply plugin: "jetty"
 // apply plugin: 'application'
-apply plugin: "checkstyle"
+// apply plugin: "checkstyle"
 apply plugin: "findbugs"
 apply from: "flyway.gradle"
 
@@ -21,10 +21,7 @@ def defaultEncoding = 'UTF-8'
     javadoc
 ]*.options*.encoding = defaultEncoding
 
-[
-    checkstyleMain,
-    checkstyleTest
-]*.ignoreFailures = true
+// [checkstyleMain, checkstyleTest]*.ignoreFailures = true
 
 [findbugsMain, findbugsTest]*.ignoreFailures = true
 
@@ -48,8 +45,6 @@ dependencies {
     ].each { compile "com.sun.jersey:jersey-$it:1.17.1" }
     testCompile 'junit:junit:4.10'
 }
-
-task wrapper(type: Wrapper) { gradleVersion = '1.6' }
 
 task stage(dependsOn: ['clean'])
 
