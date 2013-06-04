@@ -45,7 +45,39 @@ dependencies {
     testCompile 'junit:junit:4.10'
 }
 
+fileTree(dir: 'src/main/config', include: '**/*.properties').each { file ->
+    def env = file.name.substring(0, file.name.lastIndexOf('.'))
+
+    task("${env}War", type: War) {
+        def props = new Properties()
+        file.withInputStream { stream ->
+            props.load(stream)
+        }
+
+        doFirst {
+            copy {
+                from("src/main/webapp")
+                into "${buildDir}/additionalWebInf"
+                expand(props)
+            }
+        }
+
+        appendix props.warAppendix
+        exclude('WEB-INF/web.xml')
+        webInf { from("${buildDir}/additionalWebInf") }
+    }
+}
+
 task stage(dependsOn: ['clean', 'installApp'])
 
 [jettyRun, jettyRunWar]*.httpPort = 8090
 [jettyRun, jettyRunWar]*.contextPath = 'sample'
+
+// 既存の war タスクを上書き
+// ただし、依存関係は自前
+// 参考) http://wadahiro.hatenablog.com/entry/20120318/1332045900
+task war(overwrite: true, dependsOn: ['classes']) << {
+    println "start war."
+    tasks.productionWar.execute()
+    println "end war."
+}
