@@ -6,13 +6,13 @@ gradle-sample-jettyapp
 - Application Servers : Jetty 8.x
 - Summary : Simple web application by Gradle build.
 
-## Build app locally:
+## Build app locally
 
 ```
 $ gradle build
 ```
 
-Build and run app locally:
+## Build and run app locally
 
 ```
 $ gradle jettyRunWar
